@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  section: MyString
+  instruction: MyText
+  question: MyText
+  question_type: MyString
+
+two:
+  section: MyString
+  instruction: MyText
+  question: MyText
+  question_type: MyString

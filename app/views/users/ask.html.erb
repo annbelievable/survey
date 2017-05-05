@@ -1,0 +1,21 @@
+
+<table>
+  <%= form_for(@response, url: response_path) do |f|%>
+    <% @questions.each_with_index do |q, index| %>
+      <tr><%= index+1 %></tr><br>
+      <tr><%= q.section %></tr><br>
+      <tr><%= q.question %></tr><br>
+      <tr><%= q.instruction %></tr><br>
+      <br>
+        <% if q.question_type == 'single' %>
+          <tr><%= select_tag q.id, options_for_select(q.answers.collect { |i| [i.answer, i.id] }) %></tr><br>
+        <% else %>
+          <% q.answers.each do |ans| %>
+            <tr><%= check_box_tag("#{q.id}[]", ans.id, {multiple: true}) %><%= ans.answer %></tr><br>
+          <% end %>
+        <% end %>
+      <br>
+    <% end %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+</table>
